@@ -61,12 +61,12 @@ model Product {
   categoryId String
   name       String
   price      Float
-  isFeatured Boolean     @default(false)
-  isArchived Boolean     @default(false)
   sizeId     String
   colorId    String
   createdAt  DateTime    @default(now())
   updatedAt  DateTime    @updatedAt
+  isFeatured Boolean     @default(true)
+  isArchived Boolean     @default(false)
   store      Store       @relation("StoreToProduct", fields: [storeId], references: [id])
   category   Category    @relation("CategoryToProduct", fields: [categoryId], references: [id])
   size       Size        @relation(fields: [sizeId], references: [id])
